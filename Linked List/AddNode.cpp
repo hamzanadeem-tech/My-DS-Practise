@@ -6,6 +6,11 @@ class Node
 public:
     int data;
     Node *Next;
+    Node()
+    {
+        data = 0;
+        Next = nullptr;
+    }
 };
 
 class LinkedList
@@ -23,7 +28,6 @@ public:
     {
         Node *Temp = new Node;
         Temp->data = d;
-        Temp->Next = nullptr;
         if (First == nullptr)
         {
             First = Temp;
@@ -35,21 +39,21 @@ public:
             Last = Temp;
         }
     }
-        void Display()
+    void Display()
+    {
+        if (First == nullptr)
         {
-            if (First == nullptr)
-            {
-                cout << "List is empty";
-                return;
-            }
-            Node *temp = First;
-            while (temp != nullptr)
-            {
-                cout << temp->data << endl;
-                temp = temp->Next;
-            }
+            cout << "List is empty";
+            return;
         }
-    };
+        Node *temp = First;
+        while (temp != nullptr)
+        {
+            cout << temp->data << endl;
+            temp = temp->Next;
+        }
+    }
+};
 
 int main()
 {
