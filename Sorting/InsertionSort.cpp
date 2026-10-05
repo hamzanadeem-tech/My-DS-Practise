@@ -12,7 +12,7 @@ void InsertionSort(int arr[], int size)
             arr[j + 1] = arr[j];
             j--;
         }
-        arr[j + 1] = temp;
+        arr[j + 1] = temp; // After while loop is finished and j becomes -1.
     }
 }
 
