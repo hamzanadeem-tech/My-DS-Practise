@@ -176,74 +176,43 @@ public:
 
     void Sort()
     {
-        if (First == nullptr || First->Next == nullptr)
+        if (First == nullptr)
         {
+            cout << "List is empty" << endl;
             return;
         }
-
-        bool swapped;
-        do
+        for (Node *i = First; i != nullptr; i = i->Next)
         {
-            swapped = false;
-
-            Node *Prev = nullptr;
-            Node *Curr = First;
-
-            while (Curr != nullptr && Curr->Next != nullptr)
+            for (Node *j = i->Next; j != nullptr; j = j->Next)
             {
-                if (Curr->Data > Curr->Next->Data)
+                if (i->Data > j->Data)
                 {
-                    Node *NextNode = Curr->Next;
-
-                    if (Prev == nullptr)
-                    {
-                        First = NextNode;
-                    }
-                    else
-                    {
-                        Prev->Next = NextNode;
-                    }
-
-                    Curr->Next = NextNode->Next;
-                    NextNode->Next = Curr;
-
-                    Prev = NextNode;
-                    swapped = true;
-                }
-                else
-                {
-                    Prev = Curr;
-                    Curr = Curr->Next;
+                    int TempValue = i->Data;
+                    i->Data = j->Data;
+                    j->Data = TempValue;
                 }
             }
-        } while (swapped);
-
-        Node *Temp = First;
-        while (Temp != nullptr && Temp->Next != nullptr)
-        {
-            Temp = Temp->Next;
         }
-        Last = Temp;
     }
 
-
-    void SortedInsert(int d){
-      Node *Temp = new Node;
-      Temp->Data = d;
-      Temp->Next = nullptr;
-      if (First == nullptr || d < First->Data)
-      {
-        Temp->Next = First;
-        First = Temp;
-        return;
-      }
-      Node *Temp2 = First;
-      while(Temp2->Next != nullptr && Temp2->Next->Data < d)
-      {
-        Temp2 = Temp2->Next;
-      }
-      Temp->Next = Temp2->Next;
-      Temp2->Next = Temp;      
+    void SortedInsert(int d)
+    {
+        Node *Temp = new Node;
+        Temp->Data = d;
+        Temp->Next = nullptr;
+        if (First == nullptr || d < First->Data)
+        {
+            Temp->Next = First;
+            First = Temp;
+            return;
+        }
+        Node *Temp2 = First;
+        while (Temp2->Next != nullptr && Temp2->Next->Data < d)
+        {
+            Temp2 = Temp2->Next;
+        }
+        Temp->Next = Temp2->Next;
+        Temp2->Next = Temp;
     }
 };
 
