@@ -42,7 +42,7 @@ public:
             return;
         }
         top++;
-        StackArray[StackSize] = d;
+        StackArray[top] = d;
     }
     void Pop()
     {
