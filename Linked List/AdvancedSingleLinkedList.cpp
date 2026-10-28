@@ -197,22 +197,37 @@ public:
 
     void SortedInsert(int d)
     {
+        // Node *Temp = new Node;
+        // Temp->Data = d;
+        // Temp->Next = nullptr;
+        // if (First == nullptr || d < First->Data)
+        // {
+        //     Temp->Next = First;
+        //     First = Temp;
+        //     return;
+        // }
+        // Node *Temp2 = First;
+        // while (Temp2->Next != nullptr && Temp2->Next->Data < d)
+        // {
+        //     Temp2 = Temp2->Next;
+        // }
+        // Temp->Next = Temp2->Next;
+        // Temp2->Next = Temp;
         Node *Temp = new Node;
         Temp->Data = d;
-        Temp->Next = nullptr;
-        if (First == nullptr || d < First->Data)
+        if (First == nullptr || First->Data >= d)
         {
             Temp->Next = First;
             First = Temp;
             return;
         }
-        Node *Temp2 = First;
-        while (Temp2->Next != nullptr && Temp2->Next->Data < d)
+        Node *Curr = First;
+        while (Curr->Next != nullptr && Curr->Next->Data < d)
         {
-            Temp2 = Temp2->Next;
+            Curr = Curr->Next;
         }
-        Temp->Next = Temp2->Next;
-        Temp2->Next = Temp;
+        Temp->Next = Curr->Next;
+        Curr->Next = Temp;
     }
 };
 
