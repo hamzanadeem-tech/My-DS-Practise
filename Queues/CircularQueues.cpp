@@ -3,7 +3,8 @@ using namespace std;
 
 const int QueueSize = 6;
 
-class Queue {
+class Queue
+{
 public:
     int Front;
     int Rear;
@@ -15,7 +16,8 @@ public:
     {
         if (Front == -1)
             return true;
-        return false;
+        else
+            return false;
     }
 
     bool IsFull()
@@ -24,12 +26,16 @@ public:
         {
             return true;
         }
-        else return false;
+        else
+            return false;
     }
 
     void Enque(int d)
     {
-        if (IsFull()) { return; }
+        if (IsFull())
+        {
+            return;
+        }
         else if (IsEmpty())
         {
             Front = Rear = 0;
@@ -98,18 +104,19 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Queue q;
 
     q.Enque(10);
     q.Enque(20);
     q.Enque(30);
     q.Enque(40);
-    
+
     cout << "Current Queue: ";
     q.Display();
     cout << endl;
-    
+
     cout << "Size: " << q.GetSize() << endl;
     cout << "Front Element: " << q.GetFront() << endl;
 
