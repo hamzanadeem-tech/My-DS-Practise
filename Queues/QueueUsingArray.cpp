@@ -25,6 +25,15 @@ public:
     bool IsEmpty()
     {
         return Front == -1;
+        // Alternative method
+        // if (Front == -1)
+        // {
+        //     return true;
+        // }
+        // else
+        // {
+        //     return false;
+        // }
     }
     void Enqueue(int d)
     {
