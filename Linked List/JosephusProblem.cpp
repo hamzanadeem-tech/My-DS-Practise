@@ -17,6 +17,12 @@ class List
 public:
     Node *CreateCircle(int n)
     {
+        if (n <= 0)
+        {
+            cout << "Circle cannot be created";
+            return nullptr;
+        }
+
         Node *First = new Node;
         First->Data = 1;
         Node *Curr = First;
